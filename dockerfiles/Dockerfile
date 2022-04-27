@@ -1,6 +1,7 @@
 # syntax = docker/dockerfile:1.0-experimental
 FROM debian:buster-slim
-RUN apt-get install xdg-utils
+RUN apt-get update -y
+RUN apt-get install -y xdg-utils
 RUN set -x \
 	&& apt-get update -y \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
