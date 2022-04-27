@@ -43,8 +43,8 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/steam/steamcmd/linux64
 RUN mkdir /home/steam/.steam/sdk64
 RUN cp /home/steam/steamcmd/linux64/steamclient.so  /home/steam/.steam/sdk64/steamclient.so
 
-RUN cp ~/docker-tts/src/'Tabletop Simulator.x86_64' /home/steam/tts
-RUN cp -R ~/docker-tts/src/'Tabletop Simulator_Data' /home/steam/tts
+RUN cp /root/docker-tts/src/'Tabletop Simulator.x86_64' /home/steam/tts
+RUN cp -R /root/docker-tts/src/'Tabletop Simulator_Data' /home/steam/tts
 
 COPY tts.sh .
 
