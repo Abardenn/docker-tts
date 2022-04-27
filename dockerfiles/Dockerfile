@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1.0-experimental
 FROM debian:buster-slim
-
+RUN apt-get install xdg-utils
 RUN set -x \
 	&& apt-get update -y \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
@@ -39,6 +39,8 @@ COPY patches /home/steam/patches
 RUN ./apply_patches.sh
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/steam/steamcmd/linux64
+RUN mkdir /home/steam/.steam/sdk64
+RUN cp /home/steam/steamcmd/linux64/steamclient.so  /home/steam/.steam/sdk64/steamclient.so
 
 COPY tts.sh .
 
