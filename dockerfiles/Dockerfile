@@ -2,6 +2,7 @@
 FROM debian:buster-slim
 RUN apt-get update -y
 RUN apt-get install -y xdg-utils
+RUN apt-get install -y sudo
 RUN set -x \
 	&& apt-get update -y \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
@@ -15,6 +16,7 @@ RUN set -x \
 			&& wget -qO- 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar zxf -" \
     && apt-get clean
 
+RUN sudo adduser steam sudo
 USER steam
 
 ENV PATH="/home/steam/steamcmd:${PATH}"
